@@ -10,6 +10,7 @@ examples:
 
 no parameter (no minimum, no maximum, integer(default))
 >`<input ng-model="age" type="text" numeric required/>`
+
 >`<input ng-model="age" type="text" numeric="" required/>`
 >
 
