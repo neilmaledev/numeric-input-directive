@@ -4,7 +4,7 @@
 
 > bower install ngNumericInput
 
-Add a <script> to your index.html:
+Add a < script > to your index.html:
 
 > <script src="/bower_components/ngNumericInput/numeric-input-directive.js"></script>
 
