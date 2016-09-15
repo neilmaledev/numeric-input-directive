@@ -2,7 +2,7 @@
 
 install via bower
 
-bower install ngNumericInput
+**bower install ngNumericInput**
 
 ============================
 
