@@ -1,5 +1,11 @@
 # numeric-input-directive
 
+install via bower
+
+bower install ngNumericInput
+
+============================
+
 numeric parameters
 
 1. type: 'integer || decimal'
