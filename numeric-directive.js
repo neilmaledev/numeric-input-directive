@@ -1,3 +1,12 @@
+(function() {
+  'use strict';
+
+  /* global _ */
+
+  /**
+   */
+angular.module('ngNumericInput', [])
+
 .directive('numeric', function () {
     return {
         require: 'ngModel',
@@ -88,3 +97,5 @@
         }
     };
 });
+
+})();
