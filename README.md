@@ -1,8 +1,16 @@
 # numeric-input-directive
 
-install via bower
+**install via bower**
 
-**bower install ngNumericInput**
+> bower install ngNumericInput
+
+Add a <script> to your index.html:
+
+> <script src="/bower_components/ngNumericInput/numeric-input-directive.js"></script>
+
+Then add ngNumericInput as a dependency for your app:
+
+> angular.module('myApp', ['ngNumericInput']);
 
 ============================
 
