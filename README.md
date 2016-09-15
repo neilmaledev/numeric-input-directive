@@ -6,7 +6,9 @@
 
 Add a < script > to your index.html:
 
-> <script src="/bower_components/ngNumericInput/numeric-input-directive.js"></script>
+```
+<script src="/bower_components/ngNumericInput/numeric-input-directive.js"></script>
+```
 
 Then add ngNumericInput as a dependency for your app:
 
