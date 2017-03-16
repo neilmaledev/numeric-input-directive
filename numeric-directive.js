@@ -94,7 +94,7 @@ angular.module('ngNumericInput', [])
                         }
                     }
                 } else {
-                    value = 1; /* default */
+                    value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue); /* default */
                 }
 
                 ctrl.$setViewValue(value.toString());
