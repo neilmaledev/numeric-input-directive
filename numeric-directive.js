@@ -22,13 +22,11 @@ angular.module('ngNumericInput', [])
                 if(scope.numeric !== undefined) {
 
                     if(scope.numeric.hasOwnProperty('type')) {
-                        if(scope.numeric.type === 'integer') {
-                            value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue);
-                        } else if(scope.numeric.type === 'decimal') {
+                        if(scope.numeric.type === 'decimal') {
                             value = isNaN(parseFloat(ctrl.$viewValue)) ? 1 : parseFloat(ctrl.$viewValue);
                         } else {
                             value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue);
-                            console.log('Warning: Number type is invalid. ("integer" or "decimal" only). Integer is default even without adding type');
+                            //Integer is default even without adding type
                         }
                     } else {
                         value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue);
@@ -73,7 +71,11 @@ angular.module('ngNumericInput', [])
 
                     } else if (scope.numeric.hasOwnProperty('min')) {
 
-                        min = parseInt(scope.numeric.min);
+                        if(scope.numeric.hasOwnProperty('type') && scope.numeric.type === 'decimal') {
+                            min = parseFloat(scope.numeric.min);
+                        } else {
+                            min = parseInt(scope.numeric.min);
+                        }
 
                         if(!isNaN(min) && value < min) {
                             value = min;
@@ -81,13 +83,18 @@ angular.module('ngNumericInput', [])
 
                     } else if (scope.numeric.hasOwnProperty('max')) {
 
-                        max = parseInt(scope.numeric.max);
+                        if(scope.numeric.hasOwnProperty('type') && scope.numeric.type === 'decimal') {
+                            max = parseFloat(scope.numeric.max);
+                        } else {
+                            max = parseInt(scope.numeric.max);
+                        }
 
                         if(!isNaN(max) && value > max) {
                             value = max;
                         }
-
                     }
+                } else {
+                    value = 1; /* default */
                 }
 
                 ctrl.$setViewValue(value.toString());
