@@ -23,13 +23,13 @@ angular.module('ngNumericInput', [])
 
                     if(scope.numeric.hasOwnProperty('type')) {
                         if(scope.numeric.type === 'decimal') {
-                            value = isNaN(parseFloat(ctrl.$viewValue)) ? 1 : parseFloat(ctrl.$viewValue);
+                            value = isNaN(parseFloat(ctrl.$viewValue)) ? undefined : parseFloat(ctrl.$viewValue);
                         } else {
-                            value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue);
+                            value = isNaN(parseInt(ctrl.$viewValue)) ? undefined : parseInt(ctrl.$viewValue);
                             //Integer is default even without adding type
                         }
                     } else {
-                        value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue);
+                        value = isNaN(parseInt(ctrl.$viewValue)) ? undefined : parseInt(ctrl.$viewValue);
                     }
 
                     if(scope.numeric.hasOwnProperty('min') && scope.numeric.hasOwnProperty('max')) {
@@ -94,10 +94,11 @@ angular.module('ngNumericInput', [])
                         }
                     }
                 } else {
-                    value = isNaN(parseInt(ctrl.$viewValue)) ? 1 : parseInt(ctrl.$viewValue); /* default */
+                    value = isNaN(parseInt(ctrl.$viewValue)) ? undefined : parseInt(ctrl.$viewValue); /* default */
                 }
-
-                ctrl.$setViewValue(value.toString());
+                if(value){
+                    ctrl.$setViewValue(value.toString());
+                }
                 ctrl.$render();
 
             });
