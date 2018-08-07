@@ -15,6 +15,20 @@ angular.module('ngNumericInput', [])
             numeric: '='
         },
         link: function (scope, elem, attr, ctrl) {
+            
+            elem.bind("keypress", function(event) {
+                if(scope.numeric.type === 'decimal') {
+                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13 || event.charCode == 46;
+                }
+                else{
+
+                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13;
+
+                   
+                }
+            });
+          
+          
             elem.bind('change', function() {
                 
                 var value, min, max;
