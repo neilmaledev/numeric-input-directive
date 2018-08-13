@@ -18,11 +18,11 @@ angular.module('ngNumericInput', [])
             
             elem.bind("keypress", function(event) {
                 if(scope.numeric.type === 'decimal') {
-                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13 || event.charCode == 46;
+                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13 || event.charCode == 46 || event.charCode == 0;
                 }
                 else{
 
-                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13;
+                    return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 13 || event.charCode == 0;
 
                    
                 }
